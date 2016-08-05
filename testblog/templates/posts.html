@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block posts %}
+<div id = "wrapper">
+
+       <div class="signup-form" id = "comment">
+
+           <form  method = "post" name = "send">{% csrf_token %}
+               <fieldset>
+                   {{ form.as_p }}
+                   <p><input class="btn btn-default" name= "submit" type = "submit" value = "Send" id="send_btn" ></p>
+               </fieldset>
+           </form>
+       </div>
+   </div>
+
+<table align="center"border="1px" id="myTable" class="tablesorter">
+
+ <thead>
+ <tr>
+     <th>Username</th>
+     <th>Title</th>
+     <th>Text</th>
+     <th>Time</th>
+     <th>Options</th>
+ </tr>
+ </thead>
+
+ <tbody>
+ {% for article in articles %}
+     <tr>
+             <td>
+                  {{article.username}}
+             </td>
+             <td>
+                  {{article.title}}
+             </td>
+             <td>
+                  {{article.text}}
+             </td>
+             <td>
+                  {{article.date}}
+             </td>
+             <td>
+                  <a href = "/posts/delete/{{article.id}}"> Delete </a>
+             </td>
+
+     </tr>
+{% endfor %}
+ </tbody>
+</table>
+
+<br>
+
+<div align="center" id="pager" class="pager">
+ <form>
+
+     <img src="images/first.png" class="first"/>
+     <img src="images/prev.png" class="prev"/>
+     <input type="text" class="pagedisplay"/>
+     <img src="images/next.png" class="next"/>
+     <img src="images/last.png" class="last"/>
+
+ </form>
+</div>
+
+{% endblock %}

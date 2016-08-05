@@ -1,0 +1,103 @@
+html {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    color: #8f8f8f;
+    font: 12px Tahoma, sans-serif;
+
+
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #2B587A;
+}
+
+
+#header {
+    text-align: center;
+    min-width: 650px;
+    max-width: 1200px;
+    width: 800px;
+    margin: 0 auto;
+
+    border:1px solid #ccc;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+
+    background:#eaebec;
+
+    -moz-box-shadow: 0 1px 2px #d1d1d1;
+    -webkit-box-shadow: 0 1px 2px #d1d1d1;
+    box-shadow: 0 1px 2px #d1d1d1;
+
+    text-shadow: 1px 1px 0px #fff;
+
+}
+
+#wrapper {
+    min-width: 650px;
+    max-width: 1200px;
+    width: 800px;
+    margin: 0 auto;
+    padding: 0;
+
+}
+
+#comment legend {
+    color: #1E90FF;
+    font-size: 20px;
+
+}
+
+#comment {
+    width: 800px;
+
+}
+
+#submit {
+    background: none repeat scroll 0 0 #018CC2;
+    border: medium none;
+    color: #666666;
+    font: bold 12px Arial,Helvetica,sans-serif;
+    height: 30px;
+    margin-bottom: 0;
+    width: 144px;
+
+}
+
+#comment input, textarea {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #DEDCDD;
+
+}
+
+#comment p {
+    color: #666666;
+
+}
+
+
+
+#captcha_pic {
+    margin: 0 0 0 55px;
+
+}
+
+#footer {
+    text-align: center;
+    font-size: 15px;
+
+}
+
+sup {
+    color: red;
+
+}
+
+
