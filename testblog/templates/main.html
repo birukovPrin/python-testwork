@@ -11,25 +11,30 @@
     <script type="text/javascript" src="{% static 'js/jquery.tablesorter.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.tablesorter.pager.js' %}"></script>
 
-    <title>Guestbook</title>
+    <title>Blog</title>
 </head>
 
 <body>
 
 <div id = "header">
-    <h1>Guestbook</h1>
-
+    <h1>Blog</h1>
     <a href = "/posts">Posts</a>&ensp;&ensp;
+    {% if user.is_authenticated %}
+    <a href = "/posts/cabinet">Cabinet</a>&ensp;&ensp;
+    <a href = "/auth/logout">Logout</a>&ensp;&ensp;
+    {% else %}
     <a href = "/auth/register">Register </a>&ensp;&ensp;
     <a href = "/auth/login">Login</a>&ensp;&ensp;
-<?php else: ?>
-    <a href = "/auth/logout">Logout</a>&ensp;&ensp;
-<?php endif;?>
+    {% endif %}
 </div>
 
 {% block posts%}{% endblock %}
 {% block login%}{% endblock %}
 {% block register%}{% endblock %}
+{% block cabinet%}{% endblock %}
+{% block edit%}{% endblock %}
+{% block article%}{% endblock %}
+{% block edit_profile%}{% endblock %}
 
 <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>

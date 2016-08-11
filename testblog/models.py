@@ -10,3 +10,9 @@ class Post(models.Model):
     text = models.TextField()
     date = models.DateTimeField(
             default=timezone.now)
+
+
+class Comments(models.Model):
+
+    text = models.TextField()
+    article = models.ForeignKey(Post, related_query_name="article")

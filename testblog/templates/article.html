@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block article %}
+<div id = "wrapper">
+
+    <div class="signup-form" id = "comment">
+
+            <fieldset>
+                <legend>{{article.title}}</legend>
+
+                <br>
+                <p2> {{article.text}} </p2>
+
+            </fieldset>
+
+    </div>
+</div>
+
+<br>
+
+<div id = "wrapper">
+
+    <div class="signup-form" >
+
+        <form  method = "post" name = "send">{% csrf_token %}
+            <fieldset>
+                <legend>Add comments</legend>
+
+                <p><label for = "comment">Comment:</label></p>
+
+                {{ form.as_p }}
+
+                <p><input class="btn btn-default" name= "submit" type = "submit" value = "Send" id="send_btn"></p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div class="signup-form">
+        <fieldset>
+            <legend>Comments</legend>
+
+            <br>
+            {% for c in comments %}
+                <p> User wrote:</p>
+                <p> {{ c.text }} </p>
+                <br><hr>
+            {% endfor %}
+
+        </fieldset>
+
+    </div>
+</div>
+
+{% endblock %}

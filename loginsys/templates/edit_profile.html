@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block edit_profile %}
+<div id = "wrapper">
+
+    <div class="signup-form" id = "comment">
+
+        <form  method = "post" name = "send">{% csrf_token %}
+            <fieldset>
+                <legend>Edit profile</legend>
+
+                {{ form.as_p }}
+
+                <p><input class="btn btn-default" name= "submit" type = "submit" value = "Send" id="send_btn" ></p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

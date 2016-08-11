@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+
+{% block cabinet %}
+<div>
+
+    <div class="signup-form" id = "comment">
+
+        <fieldset>
+            <legend>Information</legend>
+
+            <br>Name:
+            <p>{{user.first_name}}</p>
+
+            <br>Second Name:
+            <p>{{user.last_name}}</p>
+
+            <br>Email:
+            <p>{{user.email}}</p>
+
+        </fieldset>
+
+    </div>
+</div>
+
+<br><br>
+<a href = "/auth/editprofile">Edit info</a> | <a href = "/posts/add">Add publication</a><br>
+
+<br><br>
+
+<table align="center" width="90%" border="1px" id="myTable" class="tablesorter">
+
+    <thead>
+    <tr>
+        <th>Autor</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Time</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for article in articles %}
+        <tr>
+                <td>
+                     {{article.username}}
+                </td>
+                <td>
+                    <a href = "/posts/article/{{article.id}}"> {{article.title}} </a>
+                </td>
+                <td>
+                     {{article.text}}
+                </td>
+                <td>
+                     {{article.date}}
+                </td>
+                <td>
+                     <a href = "/posts/edit/{{article.id}}"> Edit </a> <br>
+                     <a href = "/posts/delete/{{article.id}}"> Delete </a>
+                </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+<br>
+
+<div align="center" id="pager" class="pager">
+    <form>
+
+        <img src="/guestbookMVC/template/images/first.png" class="first"/>
+        <img src="/guestbookMVC/template/images/prev.png" class="prev"/>
+        <input type="text" class="pagedisplay"/>
+        <img src="/guestbookMVC/template/images/next.png" class="next"/>
+        <img src="/guestbookMVC/template/images/last.png" class="last"/>
+
+    </form>
+</div>
+
+<br>
+
+{% endblock %}

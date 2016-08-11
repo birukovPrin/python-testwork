@@ -1,18 +1,6 @@
 {% extends 'main.html' %}
 
 {% block posts %}
-<div id = "wrapper">
-
-       <div class="signup-form" id = "comment">
-
-           <form  method = "post" name = "send">{% csrf_token %}
-               <fieldset>
-                   {{ form.as_p }}
-                   <p><input class="btn btn-default" name= "submit" type = "submit" value = "Send" id="send_btn" ></p>
-               </fieldset>
-           </form>
-       </div>
-   </div>
 
 <table align="center"border="1px" id="myTable" class="tablesorter">
 
@@ -22,7 +10,6 @@
      <th>Title</th>
      <th>Text</th>
      <th>Time</th>
-     <th>Options</th>
  </tr>
  </thead>
 
@@ -33,16 +20,13 @@
                   {{article.username}}
              </td>
              <td>
-                  {{article.title}}
+                  <a href = "/posts/article/{{article.id}}">  {{article.title}} </a>
              </td>
              <td>
                   {{article.text}}
              </td>
              <td>
                   {{article.date}}
-             </td>
-             <td>
-                  <a href = "/posts/delete/{{article.id}}"> Delete </a>
              </td>
 
      </tr>
