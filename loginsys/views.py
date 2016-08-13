@@ -1,9 +1,15 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.contrib import auth
+
+from django.contrib.auth.models import User
+from .models import Profile
+
 from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from .forms import UserForm
+from .forms import ProfileForm
+
 
 
 def login(request):
@@ -49,11 +55,13 @@ def register(request):
 @login_required (login_url="/auth/login/")
 def edit_profile(request):
 
-    user = request.user
-    form = UserForm(instance=user)
+    form = UserForm(instance = request.user)
+    ext_form = ProfileForm(instance= request.user.profile)
     if request.method == "POST":
-        form = UserForm(request.POST,instance=user)
-        if form.is_valid():
+        form = UserForm(request.POST,instance=request.user)
+        ext_form = ProfileForm(request.POST, instance=request.user.profile)
+        if form.is_valid() and ext_form.is_valid():
             form.save()
+            ext_form.save()
             return redirect('/posts/cabinet')
-    return render(request, 'edit_profile.html', {'user': user, 'form':form })
+    return render(request, 'edit_profile.html', {'form':form, 'ext_form':ext_form })

@@ -43,7 +43,7 @@
 
             <br>
             {% for c in comments %}
-                <p> User wrote:</p>
+                <p> User {{ c.username}} wrote:</p>
                 <p> {{ c.text }} </p>
                 <br><hr>
             {% endfor %}

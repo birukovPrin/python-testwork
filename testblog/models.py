@@ -15,4 +15,5 @@ class Post(models.Model):
 class Comments(models.Model):
 
     text = models.TextField()
+    username = models.CharField(max_length=50)
     article = models.ForeignKey(Post, related_query_name="article")

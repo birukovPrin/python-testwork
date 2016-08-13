@@ -9,7 +9,6 @@ from .forms import CommentForm
 from django.forms.models import model_to_dict
 from django.template import RequestContext, loader
 from django.http import HttpResponse
-from django.core.context_processors import csrf
 
 def posts(request):
 
@@ -28,6 +27,7 @@ def article(request, article_id):
             if form.is_valid():
                 comment = form.save(commit=False)
                 comment.article = article
+                comment.username = request.user.username
                 comment.save()
         else:
             return redirect('/auth/login')
